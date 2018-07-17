@@ -33,6 +33,7 @@ container.resolve(function(users, _, groupchat) {
     configureExpress(app);
 
     require('./socket/groupchat')(io, Users);
+    require('./socket/friend')(io);
 
     // Set up the router
     const router = require('express-promise-router')();

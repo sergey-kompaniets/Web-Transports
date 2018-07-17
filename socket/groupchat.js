@@ -33,6 +33,9 @@ module.exports = function(io, Users) {
 			if (user) {
 				io.emit('usersList', users.GetUsersList());
 			}
-		})
+		});
+
+		
+
 	});
 }

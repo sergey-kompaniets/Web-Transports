@@ -19,9 +19,7 @@
 <body>
   <%- include ./parts/navbar.ejs %>
     <div class="col-md-12">
-        <input type="hidden" id="name-user" value="Username">
-        <input type="hidden" id="name-image" value="UserImage">
-
+        
         <div class="col-md-12">
             <div class="chat_container">
                 <div class="row">
@@ -40,47 +38,14 @@
                                             </div>
                                             <div class="content">
                                                 <div class="main">
-                                                    <h3 class="name">Username || Fullname</h3>
+                                                    <h3 class="name"><%= user.username %></h3>
                                                     <p class="profession-online">
                                                         <i class="fa fa-circle online" aria-hidden="true"></i>
                                                         Online
                                                     </p>
-                                                    <p class="text-center">
-                                                    	Mantra
-                                                    </p>
-                                                </div>
-                                                <div class="footer">
-                                                    <i class="fa fa-mail-forward"></i> 
-                                                    <a style="text-decoration:none; color:#4aa1f3" href="/profile/">
-                                                      View My Profile
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row" style="margin-top:10px;">
-                            <div class="col-md-12">
-                                <div class="card-container">
-                                    <div class="card">
-                                        <div class="front">
-
-                                            <div class="content main-scroll">
-                                                <div class="main" id="main_scroll">
-                                                    <p class="friends" style="margin-bottom:0px;">
-                                                        Online Friends <span id="numOfFriends"></span>
-                                                    </p>
-                                                    <hr style="margin-top:10px" />
                                                     
-                                                    
-                                                    <div class="onlineFriends"></div>
-
                                                 </div>
-
+                                                
                                             </div>
                                         </div>
 
@@ -106,19 +71,6 @@
 
                             <div class="chat_area">
                                 <ul id="messages" class="list-unstyled">
-                                   
-                                    <!-- <li class="left">
-                                       <span class="chat-img1 pull-left">
-                                           <img src="https://placehold.it/300x300" class="img-circle" alt="">
-                                       </span>
-                                       <div class="chat-body1">
-                                           <span class="chat-name">Username</span>
-                                           <br>
-                                           Message Body
-                                       </div>
-                                    </li> -->
-                                    
-
                                 </ul>
                                 
                                 <script id="message-template" type="text/template">
@@ -131,6 +83,7 @@
                                            <br>
                                            {{ text }}
                                        </div>
+                                       
                                     </li>
                                 </script>
                                 
@@ -138,8 +91,9 @@
 
                             <div class="message_write">
                               <form id="message-form" method="post">
-                                  <input type="hidden" name="groupName" id="groupName" value="">
-                                  <input type="hidden" name="sender" id="sender" value="<%= user.username || user.fullname %>">
+                                  
+                                  
+                                  <input type="hidden" name="sender" id="sender" value="<%= user.username %>">
 
                                   <textarea class="form-control" name="message" id="msg" placeholder="Type a message"></textarea>
                                   <div class="clearfix"></div>
@@ -160,7 +114,7 @@
                             <div class="pull-left">
                                 <button class="club_fans">
                                     <i class="fa fa-users" aria-hidden="true" style="padding-right:15px; color:#4aa1f3 !important;"></i>
-                                    Online Club Fans <span id="numValue"></span>
+                                    Online<span id="numValue"></span>
                                 </button>
                             </div>
                         </div>
@@ -180,11 +134,8 @@
                                   <div class="modal-body">
                                     <form action="" method="post" id="add_friend">
                                         <input type="hidden" name="receiverName" id="receiverName" value="">
-                                        <input type="hidden" name="sender-name" id="sender-name" value="Username">
+                                        <input type="hidden" name="sender-name" id="sender-name" value="<%= user.username %>">
                                         <button type="submit" id="friend-add" class="btn add"><i class="fa fa-user"></i> Add Friend</button>
-                                        
-                                        <a id="nameLink" class="btn">View Profile</a>
-
                                         <div id="myTest">
                                             
                                         </div>
@@ -217,11 +168,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
 <script src="/socket.io/socket.io.js"></script>
-<!-- <script src="/js/messagelink.js"></script> -->
 <script src="/js/groupchat.js"></script>
-<!-- <script src="/js/group/sendrequest.js"></script> -->
-<!-- <script src="/js/global.js"></script> -->
-<!-- <script src="/js/deparam.js"></script> -->
+<script src="/js/sendrequest.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
 </body>
 

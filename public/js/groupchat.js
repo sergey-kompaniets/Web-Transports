@@ -16,18 +16,25 @@ $(document).ready(function () {
 	});
 
 	socket.on('usersList', function(users) {
-		let ol = $('<ol></ol>');
+		let ol = $(`<ol></ol>`);
 
-			for(let i = 0; i < users.length; i++) {
-				ol.append('<p>'+users[i]+'</p>');
-			}
+			users.map(user => {
+				ol.append(`<p><a id="val" data-toggle="modal" data-target="#myModal">${user}</a></p>`);
+			});
 
+			$(document).on('click', '#val', function(){
+        $('#name').text('@'+$(this).text());
+        $('#receiverName').val($(this).text());
+      });
+
+
+			$('#numValue').text(` (${users.length})`);
 			$('#users').html(ol);
 		
 	});
 
 	socket.on('newMessage', function(data){
-		console.log(data)
+		console.log(data.from)
 		let template = $('#message-template').html();
 		let message = Mustache.render(template, {
 			text: data.text,
@@ -47,4 +54,7 @@ $(document).ready(function () {
 			sender: sender
 		})
 	});
+
+	
+
 });

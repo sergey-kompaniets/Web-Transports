@@ -5,7 +5,10 @@ const container = dependable.container();
 
 const SimpleDependecies = [
     ['_', 'lodash'],
-    ['passport', 'passport']
+    ['passport', 'passport'],
+    ['async', 'async'],
+    ['Users', './models/user']
+
 ];
 
 SimpleDependecies.forEach(function(val) {
