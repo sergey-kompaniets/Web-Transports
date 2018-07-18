@@ -25,7 +25,7 @@ class Users {
 	}
 
 	GetUsersList() {
-		// console.log(this.users)
+		console.log(this.users)
 		let users = this.users.filter(user => user);
 		
 		let namesArray = users.map(user => user.name);

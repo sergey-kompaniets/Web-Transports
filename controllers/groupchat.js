@@ -22,7 +22,7 @@ module.exports = function(Users, async) {
 				}
       ], (err, results) => {
       	const result1 = results[0];
-      	console.log(result1);
+      	// console.log(result1);
       	 res.render('groupchat', {title: 'BSA18APP | Group Chat', user:req.user, data: result1});
 				
       });

@@ -35,7 +35,8 @@ module.exports = function(io, Users) {
 			}
 		});
 
-		
-
+		socket.on('typing', (data) => {
+			socket.broadcast.emit('typing', data);
+		});
 	});
 }

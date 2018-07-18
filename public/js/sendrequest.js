@@ -22,7 +22,7 @@ $(document).ready(function(){
 
     $(document).on('submit', '#add_friend',  function(e) {
         e.preventDefault();
-
+        
         let receiverName = $('#receiverName').val();
 
         $.ajax({
@@ -60,7 +60,7 @@ $(document).ready(function(){
         $('#reload').load(location.href + ' #reload');
     });
 
-     $('#cancel_friend').on('click', function() {
+    $('#cancel_friend').on('click', function() {
         let user_Id = $('#user_Id').val();
 
         $.ajax({
